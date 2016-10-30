@@ -1,0 +1,40 @@
+@charset "utf-8";
+.tudou_main {
+  width: 616px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  height: 62px;
+  line-height: 62px;
+  border-top: solid 1px #d0d0d0;
+  margin-top: 20px;
+}
+.title h3 {
+  color: #575757;
+  font: 22px 62px "Microsoft YaHei";
+  width: 106px;
+  border-top: solid 2px #F97374;
+  margin-top: -1px;
+  position: relative;
+  float: left;
+  height: 61px;
+}
+.title_nav {
+  float: right;
+  font-size: 14px;
+}
+.title_nav li {
+  float: left;
+  list-style: none;
+}
+.title_nav a {
+  color: #575757;
+  text-decoration: none;
+}
+.title_nav a:hover {
+  color: red;
+}
+.title_nav span {
+  margin: 0 11px;
+}
