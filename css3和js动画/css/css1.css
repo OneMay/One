@@ -1,0 +1,716 @@
+
+
+body{
+	margin: 0px;
+	padding:0px;
+	background-color:#edecec;
+}
+.content{
+	width:100%;
+	height: 300px;
+}
+figure{
+	width:33%;
+	height:300px;
+	float:left;
+	margin:0px;
+	background: gray;
+	overflow: hidden;
+	position: relative;
+	
+}
+figcaption{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	
+}
+img{
+    width :550px;
+    height: 300px;
+    -webkit-transition: all 0.35s;
+}
+h1 {
+    text-align:center;
+    color:#fff;
+	font-size:48px;
+   font-family: 'Fruktur',cursive;
+   text-shadow: 1px  1px 1px #ccc,   /*给文字添加阴影*/
+                  0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 100px #ff00de,
+                   0 0 150px #ff00de;
+   }
+figure figcaption p,h1,div{
+	-webkit-transition: all 1s;
+}
+@-webkit-keyframes three-dimensional{
+	0%{
+		-webkit-transform:translateX(-1220px);
+	}
+	20%{
+		-webkit-transform:rotateY(90deg);
+	}
+	40%{
+		-webkit-transform:rotateY(180deg);
+	}
+	80%{
+		-webkit-transform:rotateY(270deg);
+	}
+	100%{
+		-webkit-transform:translateX(1920px);
+	}
+} 
+@-webkit-keyframes three-dimensional-rotate{
+	0%{
+		-webkit-transform:rotateY(90deg);
+	}
+	10%{
+	}
+	100%{
+		-webkit-transform:rotateY(180deg);
+	}
+}
+
+@-webkit-keyframes three-dimensional-1{
+	0%{
+		-webkit-transform:translateX(-1170px);
+	}
+	10%{
+	}
+	100%{
+		-webkit-transform:translateX(1920px);
+	}
+}
+@-webkit-keyframes three-dimensional-2{
+	0%{
+		-webkit-transform:translateX(-1170px);
+	}
+	10%{
+	}
+	100%{
+		-webkit-transform:translateX(1920px);
+	}
+}
+/*平移动画*/
+.pic1{
+	position: relative;
+	background: #2F0000;
+}
+
+.pic1 h1{
+	color: white;
+}
+.pic1 p{
+	border: 1px solid white;
+	background: white;
+	color: black;
+	text-align: center;
+	-webkit-transform:translate(-200px,0px);
+}
+.pic1:hover img{
+	-webkit-animation: scale  ease-in-out 3.5s 1;
+	transform:translate(-20px,0px);
+	-webkit-transform:translate(-20px,0px);/* Safari 和 Chrome */
+	-moz-transform:translate(-20px,0px);/* 老的 Firefox */
+	opacity: 0.5;  /*设置透明度*/
+}
+.pic1:hover p {
+	-webkit-animation: move  ease-in-out 4s 1;
+    transform:translate(0px,0px);
+	-moz-transform:translate(0px,0px);
+	-webkit-transform:translate(0px,0px);
+}
+.pic1 figcaption p:nth-of-type(1){-webkit-transition-delay: 0.05s;} /*nth-of-type选择位于父元素中的某种类型的子元素*/
+.pic1 figcaption p:nth-of-type(2){-webkit-transition-delay: 0.1s;}
+.pic1 figcaption p:nth-of-type(3){-webkit-transition-delay: 0.15s;}
+@-webkit-keyframes scale {
+      0% {
+        -webkit-transform:scaleX(1);	
+
+      }
+    50% {
+        -webkit-transform:scaleX(0.7);	
+      }
+    60%{
+    	-webkit-transform:translate(-30px);
+    }
+      100% {
+        -webkit-transform:scaleX(1);	
+      }
+    }
+@-webkit-keyframes move {
+  0%{
+    -webkit-transform: translate(0);
+    box-shadow: 1px  1px 1px 2px #ccc,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff,
+                   0 0 20px 1px #fff,
+                   0 0 30px 1px#fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 100px #ff00de,
+                   0 0 150px 30px #ff00de;
+  }
+  15%{
+    -webkit-transform: translate(300px,50px);
+    box-shadow: 1px  1px 1px 2px #ccc,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff,
+                   0 0 20px 1px #fff,
+                   0 0 30px 1px#fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 100px #ff00de,
+                   0 0 150px 30px #ff00de;
+  }
+  30%{
+    -webkit-transform: translate(200px,-50px);
+    box-shadow: 1px  1px 1px 2px #ccc,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff,
+                   0 0 20px 1px #fff,
+                   0 0 30px 1px#fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 100px #ff00de,
+                   0 0 150px 30px #ff00de;
+  }
+  45%{
+    -webkit-transform: translate(200px,0px);
+    box-shadow: 1px  1px 1px 2px #ccc,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff,
+                   0 0 20px 1px #fff,
+                   0 0 30px 1px#fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 100px #ff00de,
+                   0 0 150px 30px #ff00de;
+  }
+  60%{
+    -webkit-transform:translate(100px,0);
+    box-shadow: 1px  1px 1px 2px #ccc,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff,
+                   0 0 20px 1px #fff,
+                   0 0 30px 1px#fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 100px #ff00de,
+                   0 0 150px 30px #ff00de;
+}
+  100%{
+    -webkit-transform: translate(0px,0);
+    box-shadow: 1px  1px 1px 2px #ccc,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff,
+                   0 0 20px 1px #fff,
+                   0 0 30px 1px#fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 100px #ff00de,
+                   0 0 150px 30px #ff00de;
+  }
+}
+
+
+
+/*旋转动画*/
+.pic2{
+	position: relative;
+
+     background: #2F0000;
+}
+.pic2 figcaption{
+	width: 100%;
+	height: 100%;
+	padding: 15%;
+}
+.pic2_div{
+	border-radius: 50%;
+	border:solid 3px white;
+	left: 8%;
+	top: 4%;
+	width: 55%;
+	height: 60%;
+	position: absolute;
+	-webkit-transform: translate(0px,-400px)  rotate(0deg);
+	box-shadow: 1px  1px 1px 2px #ccc,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff,
+                   0 0 20px 1px #fff,
+                   0 0 30px 1px#fff,
+                   0 0 40px #ff00de,
+                   0 0 70px #ff00de,
+                   0 0 80px #ff00de,
+                   0 0 82px #ff00de,
+                   0 0 90px 3px #ff00de;
+}
+.pic2:hover div{
+	-webkit-transform: translate(0px,0px)  rotate(10800deg);
+    -webkit-transition-duration:4s;
+}
+.pic2 p{
+	color:white;
+	opacity: 0;
+	-webkit-transform: translate(-400px,0px)  rotate(0deg);
+}
+.pic2:hover p{
+	opacity: 1;
+    -webkit-transform: translate(0px,0px)  rotate(1080deg);
+}
+.pic2 h1{
+	color:white;
+	-webkit-transform: translate(0px,-65px)  rotate(0deg);
+}
+.pic2:hover h1{
+	-webkit-animation: run  ease-in-out 2s infinite;
+    -webkit-transform: translate(0px,0px) ;
+    -webkit-transform-style: preserve-3d;
+}
+.pic2 img{
+	 -webkit-transform: translate(0px,0px) ;
+}
+.pic2:hover img{
+	
+      -webkit-transform: translate(-20px,0px); 
+      opacity:0.5;
+      
+}
+.pic2:hover #box{
+	border: 1px solid white;
+	width: 550px;
+	height: 301px;
+	box-shadow: 1px  1px 1px 2px #ccc inset,   /*给盒子添加阴影*/
+                  0 0 10px 1px #fff inset,
+                   0 0 20px 1px #fff inset,
+                   0 0 30px 1px #fff inset,
+                   0 0 40px #ff00de inset,
+                   0 0 70px#ff00de inset,
+                   0 0 80px #ff00de inset,
+                   0 0 82px #ff00de inset,
+                   0 0 90px 30px #ff00de inset;
+    -webkit-animation: run  ease-in-out .1s 39;
+    -webkit-transform-style: preserve-3d;
+
+}
+
+
+@keyframes run {
+      0% {
+        transform:rotateX(-5deg) rotateY(0);	
+      }
+    50% {
+        transform:rotateX(0) rotateY(180deg);	
+		 text-shadow: 1px  1px 1px #ccc,
+                  0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #3EFF3E,
+                   0 0 70px #3EFFff,
+                   0 0 80px #3EFFff,
+                   0 0 100px #3EFFee,
+                   0 0 150px #3EFFee;
+                 
+      }
+      100% {
+        transform:rotateX(5deg) rotateY(360deg);	
+      }
+    }
+
+@-moz-keyframes run {
+      0% {
+        -moz-transform:rotateX(-5deg) rotateY(0);	
+
+      }
+    50% {
+        -moz-transform:rotateX(0) rotateY(180deg);	
+		 text-shadow: 1px  1px 1px #ccc,
+                  0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #3EFF3E,
+                   0 0 70px #3EFFff,
+                   0 0 80px #3EFFff,
+                   0 0 100px #3EFFee,
+                   0 0 150px #3EFFee;
+                 
+      }
+      100% {
+        -moz-transform:rotateX(5deg) rotateY(360deg);	
+      }
+    }
+
+@-webkit-keyframes run {
+      0% {
+        -webkit-transform:rotateX(-5deg) rotateY(0);	
+
+      }
+    50% {
+        -webkit-transform:rotateX(0) rotateY(180deg);	
+		 text-shadow: 1px  1px 1px #ccc,
+                  0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #3EFF3E,
+                   0 0 70px #3EFFff,
+                   0 0 80px #3EFFff,
+                   0 0 100px #3EFFee,
+                   0 0 150px #3EFFee;
+                 
+      }
+      100% {
+        -webkit-transform:rotateX(5deg) rotateY(360deg);	
+      }
+    }
+@-ms-keyframes run {
+      0% {
+        -ms-transform:rotateX(-5deg) rotateY(0);	
+
+      }
+    50% {
+        -ms-transform:rotateX(0) rotateY(180deg);	
+		
+      }
+      100% {
+        -ms-transform:rotateX(5deg) rotateY(360deg);	
+      }
+    }
+/*扭曲动画*/
+/*.pic3{
+	background: #2F0000;
+}
+.pic3 figcaption{
+	position: absolute;
+	top:80px;
+	left: 80px;
+	color: white;
+}
+.pic3 img{
+	 -webkit-transform: translate(0px,0px) ;
+}
+.pic3:hover img{
+      -webkit-transform: translate(-20px,0px) ;
+      opacity:0.5;
+}
+.pic3 figcaption h2,.pic3 figcaption p{
+	-webkit-transform: skew(90deg);
+}
+.pic3:hover figcaption h2,.pic3:hover figcaption p{
+	-webkit-transform: skew(0deg);
+}*/
+
+
+/*图片缩放*/
+/*.pic4{background-color: black}
+.pic4 figcaption{
+	width: 100%;
+	height: 100%;
+	padding: 15%;
+}
+.pic4 div{
+	width: 80%;
+	height: 80%;
+	border: 2px solid white;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	-webkit-transform:scale(1.2,1.2);
+	opacity: 0;
+}
+.pic4 figcaption h2{
+	 -webkit-transform:scale(1.2,1.2);
+	 opacity: 0;
+	 color:white;
+}
+.pic4 figcaption p{
+     -webkit-transform:scale(1.2,1.2);
+	 opacity: 0;
+	  color:white;
+}
+.pic4:hover div{
+	-webkit-transform:scale(1,1);
+	opacity: 1;
+}
+.pic4:hover img{
+	opacity: 0.5;
+	-webkit-transform:scale(1.2,1.2);
+}
+
+.pic4:hover figcaption h2{
+	 -webkit-transform:scale(1,1);
+	 opacity: 1;
+}
+.pic4:hover figcaption p{
+	-webkit-transform:scale(1,1);
+	 opacity: 1;
+}*/
+
+
+/*利用旋转显示额外信息*/
+/*.pic5{
+	background: #030;
+}
+.pic5 figcaption{
+      width: 100%;
+      height:100%;
+      position: absolute;
+      top:20%;
+      left:20%;
+}
+.pic5 div{
+	width:120%;
+	height: 300px;
+	background:#ccc;
+	position: absolute;
+	top:100%;
+	left: 0px; 
+}
+.pic5 div p{
+	color: black;
+	position: absolute;
+	top: 15%;
+	left :60%;
+	-webkit-transform:rotate(20deg);
+}
+.pic5:hover div p{
+	color: #fff;
+}
+.pic5:hover div{
+	-webkit-transform:rotate(-20deg);
+	-webkit-transform-origin:0 0;
+}
+.pic5 h2{
+	    color: white;
+		-webkit-transform:translate(0px,50px);
+		opacity: 0;
+}
+.pic5:hover h2{
+	-webkit-transform:translate(0px,0px);
+     opacity: 1;
+	} 
+.pic5:hover img{
+	-webkit-transform:scale(1.2,1.2);
+	opacity: 0.5;
+}*/
+
+
+/*动态井字框*/
+.pic6{
+	background: #030;
+}
+.pic6 h2{
+	position: absolute;
+	color: white;
+	opacity: 0;
+	top: 0px;
+	width: 155px;
+}
+.pic6:hover h2{
+    opacity: 1;
+    text-shadow: 1px  1px 1px #ccc,
+                  0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #3EFF3E,
+                   0 0 70px #3EFFff,
+                   0 0 80px #3EFFff,
+                   0 0 100px #3EFFee,
+                   0 0 150px #3EFFee;
+}
+.box1{
+	height: 0px;
+	width: 211px;
+	border-left: 5px #91EDA5 solid;
+	position: relative;
+	left: 50%;
+	top: -92%;
+	/*opacity: 0;*/
+}
+.box2{
+	height: 0;
+	width: 211px;
+	border-left: 5px #91EDA5 solid;
+	position: absolute;
+	top: 18%;
+	left: 35%;
+	/*opacity: 0;*/
+}
+.box3{
+	height: 0;
+	width: 241px;
+	border-left: 5px #91EDA5 solid;
+	position: absolute;
+	top: 18%;
+	left: 65%;
+	/*opacity: 0;*/
+}
+.box4{
+	height: 300px;
+	width: 0px;
+	border-top: 5px #91EDA5 solid;
+	position: absolute;
+	top: 18%;
+	left: 35%;
+	/*opacity: 0;*/
+}
+.box5{
+	height: 300px;
+	width: 0px;
+	border-top: 5px #91EDA5 solid;
+	position: absolute;
+	top: 68%;
+	left: 35%;
+	/*opacity: 0;*/
+}
+.box-skew{
+	width: 60%;
+	height:85%;
+	opacity: 0;
+	position: absolute;
+	top: 10%;
+	left:20%;
+	 box-shadow: 1px  1px 1px #ccc,
+                  0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #3EFF3E,
+                   0 0 70px #3EFFff,
+                   0 0 80px #3EFFff,
+                   0 0 100px #3EFFee,
+                   0 0 150px #3EFFee;
+
+}
+
+@-webkit-keyframes run2 {
+      0% {
+        -webkit-transform: rotate(0deg);
+
+      }
+      25% {
+        -webkit-transform: rotate(90deg);	
+                 
+      }
+    50% {
+        -webkit-transform: rotate(180deg);	
+                 
+      }
+      75%{
+      	-webkit-transform: rotate(270deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);	
+      }
+    }
+.box-skew1{
+	width: 45%;
+	height:70%;
+    top: 16%;
+    left: 28%;
+    opacity: 0;
+    border-radius: 10%;
+	position: absolute;
+
+	 box-shadow: 1px  1px 1px #ccc,
+                  0 0 10px #fff,
+                   0 0 20px #fff,
+                   0 0 30px #fff,
+                   0 0 40px #3EFF3E,
+                   0 0 70px #3EFFff,
+                   0 0 80px #3EFFff,
+                   0 0 100px #3EFFee,
+                   0 0 150px #3EFFee;
+}
+.pic6:hover img{
+	opacity: 0.5;
+	-webkit-transform:scale(1.2,1.2);
+}
+.pic6:hover .box-skew{
+	opacity: 1;
+	-webkit-animation: run2  ease-in-out .3s infinite;
+} 
+.pic6:hover .box-skew1{
+	opacity: 1;
+	-webkit-animation: run  ease-in-out .3s infinite;
+}
+.pic6:hover .box1{
+      /*opacity: 1;*/
+     /* position: absolute;*/
+      height:89%;
+      -webkit-transition-delay: 2.5s;
+                
+}
+.pic6:hover .box2{
+     /*opacity: 1;*/
+    height:50%;
+    -webkit-transition-delay: 0.05s;
+}
+.pic6:hover .box3{
+     /*opacity: 1;*/
+    height:50%;
+    -webkit-transition-delay: 1.3s;
+}
+.pic6:hover .box4{
+     /*opacity: 1;*/
+    width:30%;
+    -webkit-transition-delay: 0.5s;
+}
+.pic6:hover .box5{
+     /*opacity: 1;*/
+    width:30%;
+    -webkit-transition-delay: 1.9s;
+}
+
+/*-----------------CSSS3之布局---------------*/
+.columns {
+	  width: 500px;
+	  padding: 5px;
+	  border: 1px solid green;
+	  border-image:url(../images/pic6.jpg) 1 repeat; 
+	  -webkit-columns: 150px 3;
+	  -moz-columns: 150px 3;
+	  -o-columns:150px 3;
+	  -ms-columns: 150px 3;
+	  columns: 150px 3;
+	  color:rgba(255,25,255,0.5);
+	  background-image:linear-gradient(to top left,blue,green);/*渐变色彩*/
+	  margin-left: 0;
+	  float: left;
+	  column-rule:3px solid red;/*列表边框*/
+	  -webkit-column-rule:3px solid #ccc;
+
+}
+.text-overflow{
+	text-overflow:ellipsis; /* 显示省略标记*/
+     overflow:hidden;        /*超出隐藏*/
+    white-space:nowrap;     /*强制一行显示*/
+    width: 300px;
+    height: 140px;
+    border: 1px solid #999;
+    
+    background-image: url(http://img.mukewang.com/54cf2365000140e600740095.jpg),
+                      url(http://img.mukewang.com/54cf238a0001728d00740095.jpg),
+                      url(http://img.mukewang.com/54cf23b60001fd9700740096.jpg);
+    background-position: left top, 100px 0, 200px 0;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    margin:40px 0 20px 0;
+} 
+.a-position{
+	/*float: left;*/
+	margin-top: 20px;
+}
+a[class^="column"]{
+      background:red;  /*选择匹配元素a，且a定义了属性class，属性值为以column开头的任意字符串*/
+}
+a[href$=doc]{          /*选择匹配元素a，且a定义了属性href，属性值为以doc结尾的任意字符串*/
+
+            background:green;
+        }
+a[title*="box"]{       /*选择匹配元素a，且a定义了属性title，属性值为以包含box任意字符串*/
+      background:blue;
+}
+
