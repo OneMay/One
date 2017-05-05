@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>在网页中创建表单</title>
+</head>
+
+<script type="text/javascript">
+function save(){
+	if(comfirm("是否保存以上信息？")){
+		window.location = "submit.jsp";
+	}
+}
+</script>
+
+<body>
+
+<h4>一个伪注册界面（表单）</h4>
+<form name="formtest" action="submit.html" method="post">
+账户名称：<input type="text" name="username" /><br />
+账户密码：<input type="password" name="userpassword" /><br />
+联系电话：<input type="text" name="phone" /><br />
+头像设置：<input type="file" name="photo" enctype="multipart/form-data" /><br />
+出生日期：<select name="year" size="1">
+         <option value="year1" selected="selected">2016</option>
+         <option value="year2" selected="selected">2015</option>
+         <option value="year3" selected="selected">2014</option>
+         <option value="year4" selected="selected">2013</option>
+         <option value="year5" selected="selected">2012</option>
+</select>
+<select name="month" size="1">
+         <option value="month1" selected="selected">12</option>
+         <option value="month2" selected="selected">11</option>
+         <option value="month3" selected="selected">10</option>
+         <option value="month4" selected="selected">9</option>
+         <option value="month5" selected="selected">8</option>
+</select>
+<select name="day" size="1">
+         <option value="day1" selected="selected">1</option>
+         <option value="day2" selected="selected">2</option>
+         <option value="day3" selected="selected"></option>
+         <option value="day4" selected="selected">4</option>
+         <option value="day5" selected="selected">5</option>
+</select><br />
+性别：<input type="radio" name="sex" value="female" />男
+      <input type="radio" name="sex" value="male" />女<br />
+爱好：<input type="checkbox" value="music" name="c1" />音乐
+      <input type="checkbox" value="read" name="c2" />阅读
+      <input type="checkbox" value="travel" name="c3" />旅游
+      <input type="checkbox" value="dance" name="c4" />舞蹈<br />
+<input type="submit" value="提交"  />
+</form>
+
+</body>
+</html>

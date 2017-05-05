@@ -1,0 +1,77 @@
+/* 
+* @Author: anchen
+* @Date:   2016-11-25 19:04:58
+* @Last Modified by:   anchen
+* @Last Modified time: 2016-11-25 21:24:23
+*/
+/*头部样式*/
+        #header{
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /*logo最外层的div的样式*/
+        #logo{
+            margin: 0px;
+            padding: 0px;
+            float: left;
+        }
+
+        /*设置logo图片的样式*/
+        #logo img{
+            width:100px;
+            height:100px;
+        }
+
+        /*导航条div的样式设置*/
+        #nav{
+            height: 46px;
+            font-size: 12px;
+            padding-top: 30px!important;padding-top:60px;
+            width: 610px;
+            float:right;
+        }
+
+        /*设置无序列表项样式*/
+        #nav li{
+            display: inline;
+            list-style-type: none ;
+        }
+
+        /*设置超链接未访问和已访问两种状态的样式*/
+        a:link,a:visited{
+            font-family: "宋体";
+            font-size: 15px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        /*设置超链接悬停状体的样式*/
+        a:hover{
+            font-family: "宋体";
+            color:#FF6680;
+            text-decoration: none;
+        }
+
+        /*主体内容外层div的样式*/
+        #main{
+            width:586px;
+            padding:0px;
+            margin:0 0 0 26px;
+            float:left;/*居左浮动*/
+        }    
+
+        /*主体内容标题的div样式*/
+        #title{
+            width:566px;
+            margin:0 0 5 0px;
+            padding:0px;
+        }
+
+        /*主体内容中的图片的样式*/
+        #content p img{
+            width:100px;
+            height:80px;
+            float:right; /*居右浮动*/
+        }

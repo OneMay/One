@@ -23,11 +23,11 @@
         window.onload = function () {
             var container = document.getElementById('container');
             var list = document.getElementById('list');
-            /*var buttons = document.getElementById('buttons').getElementsByTagName('span');*/
+            var buttons = document.getElementById('buttons').getElementsByTagName('span');
             var prev = document.getElementById('prev');
             var next = document.getElementById('next');
-            /*var index = 1;
-            var len = 5;*/
+            var index = 1;
+            var len = 5;
             var animated = false;
             var interval = 3000;
             var timer;
@@ -36,24 +36,24 @@
                 if (animated) {
                     return;
                 }
-                /*if(index==1){
+                if(index==1){
                     index = 5;
                 }else{
                     index -= 1;
                 }
-                showButton();*/
+                showButton();
                 animate(600);
             }
             next.onclick=function(){
                 if (animated) {
                     return;
                 }
-                /*if(index==5){
+                if(index==5){
                     index = 1;
                 }else{
                     index += 1;
-                }*/
-                /*showButton();*/
+                }
+                showButton();
                 animate(-600);
             }
 
@@ -93,7 +93,7 @@
                 clearInterval(timer);
             }
             //圆点
-             /*function showButton(){
+             function showButton(){
                 for (var i = 0;i < buttons.length;i++){
                     if(buttons[i].className == "on"){
                         buttons[i].className="";
@@ -117,7 +117,7 @@
                     index = myIndex;
                     showButton();
                 }
-             }*/
+             }
              container.onmouseover = stop;
             container.onmouseout = paly;
             paly();
