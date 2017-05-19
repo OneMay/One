@@ -1,0 +1,300 @@
+body{
+  overflow-x: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  overflow-x: hidden;
+}
+a,
+h1,
+h2,
+h3,
+h4,
+p {
+  font-family: "Microsoft Yahei", "微软雅黑";
+}
+header {
+  width: 100%;
+  *zoom: 1;
+}
+header:before,
+header:after {
+  display: table;
+  content: "";
+}
+header:after {
+  clear: both;
+}
+header .old_version {
+  width: 100%;
+  height: 40px;
+  background-color: #33ccff;
+}
+header .old_version > div {
+  width: 380px;
+  height: 40px;
+  margin-left: 62.7%;
+}
+header .old_version a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: normal;
+  margin: 0 4px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  display: inline;
+}
+header .old_version a:hover {
+  text-decoration: underline;
+}
+header .old_version .search {
+  width: 180px;
+  height: 22px;
+  float: left;
+  display: inline;
+  background-color: #33ccff;
+  border: solid 1px #fff;
+  margin-top: 9px;
+  margin-left: 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+header .old_version .search_input {
+  width: 148px;
+  float: left;
+  display: inline;
+  height: 13px;
+  line-height: 13px;
+  background-color: #33ccff;
+  border: none;
+  color: #ffffff;
+  margin-left: 7px;
+  margin-top: 5px;
+}
+header .old_version .search_btn {
+  width: 16px;
+  height: 16px;
+  background: url("../../image/search.jpg") center no-repeat;
+  float: right;
+  display: inline;
+  margin-right: 5px;
+  margin-top: 3px;
+  border: none;
+}
+header .logo {
+  height: 100px;
+  width: 1240px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+header .logo .log {
+  height: 70px;
+  width: 195px;
+  background: url("../../image/logo.jpg") left top no-repeat;
+  margin-top: 15px;
+  float: left;
+  display: inline;
+}
+header .logo .log a {
+  display: block;
+  height: 100%;
+  text-indent: -99em;
+}
+header .logo .headerNav {
+  float: right;
+  display: inline;
+  height: 40px;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 20px;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 48px;
+}
+header .logo .headerNav li {
+  float: left;
+  display: inline;
+  margin-left: 40px;
+  height: 35px;
+  text-align: center;
+}
+header .logo .headerNav li:hover div {
+  width: 100%;
+  border-bottom: 3px solid #33ccff;
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+.active{
+  width: 100% !important;
+  border-bottom: 3px solid #33ccff !important;
+}
+header .logo .headerNav li:visited div {
+  width: 100%;
+  border-bottom: 3px solid #33ccff;
+}
+header .logo .headerNav li div {
+  width: 0;
+  margin-top: 10px;
+}
+header .logo .headerNav li a {
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  display: inline-block;
+  color: #333333;
+  text-decoration: none;
+}
+header .logo .headerNav li a:hover {
+  color: #000000;
+}
+
+footer {
+  width: 100%;
+  background-color: #333333;
+  margin-top: 125px;
+}
+footer #footer {
+  width: 1205px;
+  height: 290px;
+  margin: 0 auto;
+}
+footer #footer .footer_nav {
+  width: 140px;
+  height: 140px;
+  border-left: 1px solid #999999;
+  float: left;
+  display: inline;
+  margin-top: 80px;
+}
+footer #footer .footer_nav:nth-child(6) {
+  border-right: 1px solid #999999;
+}
+footer #footer .footer_nav ul {
+  margin-left: 30px;
+}
+footer #footer .footer_nav li {
+  list-style: none;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+footer #footer .footer_nav li a {
+  font-size: 10px;
+  font-weight: normal;
+  color: #999999;
+}
+footer #footer .footer_nav li a:hover {
+  color: #33ccff;
+}
+footer #footer .footer_nav li:first-child a {
+  font-size: 15px;
+  color: #ffffff;
+}
+footer .contact {
+  width: 260px;
+  height: 115px;
+  float: left;
+  display: inline;
+  margin-left: 8%;
+  margin-top: 80px;
+}
+footer .contact img {
+  width: 115px;
+  height: 100%;
+  padding-left: 10px;
+}
+footer .about {
+  width: 1090px;
+  margin-left: 23.4%;
+  margin-top: 30px;
+  *zoom: 1;
+}
+footer .about:before,
+footer .about:after {
+  display: table;
+  content: "";
+}
+footer .about:after {
+  clear: both;
+}
+footer .about > p {
+  width: 140px;
+  height: 35px;
+  background: url("../../image/about_new.jpg") center no-repeat;
+  text-indent: -99em;
+  float: left;
+  display: inline;
+  margin-bottom: 50px;
+}
+footer .about div {
+  width: 330px;
+  height: 36px;
+  float: left;
+  display: inline;
+  margin-left: 35px;
+  margin-bottom: 50px;
+}
+footer .about div p {
+  font-size: 10px;
+  color: #ffffff;
+  line-height: 1.5em;
+}
+footer .about div p:last-child {
+  color: #6699cc;
+}
+footer .about_our {
+  float: right !important;
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 15px;
+  color: #ffffff;
+  height: 20px !important;
+}
+footer .about_our a {
+  font-size: 15px;
+  color: #ffffff;
+  padding: 0 8px;
+}
+footer .about_our a:hover {
+  color: #33ccff;
+}
+footer .chat {
+  width: 85px;
+  height: 35px;
+  position: relative;
+  top: -60px;
+  margin-left: 1410px;
+}
+footer .chat img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+footer .chat img:hover {
+  width: 30px;
+  height: 30px;
+}
+
