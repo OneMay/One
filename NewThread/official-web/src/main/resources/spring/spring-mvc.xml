@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <import resource="spring-shiro.xml"/>
+
+    <!-- 注解扫描包 -->
+    <context:component-scan base-package="com.newthread.framework.web" use-default-filters="true">
+    </context:component-scan>
+
+    <!-- 开启注解 -->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <ref bean="stringHttpMessageConverter"/>
+            <ref bean="mappingJacksonHttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 处理静态资源 -->
+    <mvc:resources mapping="/static/**" location="/static/"/>
+
+    <!-- 定义视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+        <property value="/WEB-INF/jsp/" name="prefix"/>
+        <property value=".jsp" name="suffix"/>
+    </bean>
+
+    <bean id="globalExceptionHandler" class="com.newthread.framework.exception.GlobalExceptionHandler">
+    </bean>
+
+    <!-- JackSon支持 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list >
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="objectMapper">
+            <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                <property name="dateFormat">
+                    <bean class="java.text.SimpleDateFormat">
+                        <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+                    </bean>
+                </property>
+            </bean>
+        </property>
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="stringHttpMessageConverter"
+          class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+                <value>text/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 指定所上传文件的总大小,单位字节。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+        <property name="maxUploadSize" value="1073741824"/>
+    </bean>
+
+
+
+    <!-- Shiro的注解配置一定要放在spring-mvc中 -->
+    <bean id="defaultAdvisorAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true" />
+    </bean>
+
+    <bean id="authorizationAttributeSourceAdvisor" class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <!-- 配置验证码 -->
+    <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                        <!-- 图片边框 -->
+                        <prop key="kaptcha.border">no</prop>
+                        <!-- 图片宽度 -->
+                        <prop key="kaptcha.image.width">95</prop>
+                        <!-- 图片高度 -->
+                        <prop key="kaptcha.image.height">45</prop>
+                        <!-- 验证码背景颜色渐变，开始颜色 -->
+                        <prop key="kaptcha.background.clear.from">255,255,255</prop>
+                        <!-- 验证码背景颜色渐变，结束颜色 -->
+                        <prop key="kaptcha.background.clear.to">255,255,255</prop>
+                        <!-- 验证码的字符 -->
+                        <prop key="kaptcha.textproducer.char.string">2345789acdefghjkmnprstuvwxyz</prop>
+                        <!-- 验证码字体颜色 -->
+                        <prop key="kaptcha.textproducer.font.color">0,0,255</prop>
+                        <!-- 验证码的效果，水纹 -->
+                        <prop key="kaptcha.obscurificator.impl">com.google.code.kaptcha.impl.ShadowGimpy</prop>
+                        <!-- 验证码字体大小 -->
+                        <prop key="kaptcha.textproducer.font.size">32</prop>
+                        <!-- 验证码字数 -->
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                        <!-- 验证码文字间距 -->
+                        <prop key="kaptcha.textproducer.char.space">3</prop>
+                        <!-- 验证码字体 -->
+                        <prop key="kaptcha.textproducer.font.names">new Font("Arial", 1, fontSize)</prop>
+                        <!-- 不加噪声 -->
+                        <prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop>
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

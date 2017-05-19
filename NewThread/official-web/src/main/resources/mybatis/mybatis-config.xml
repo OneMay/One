@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+<!--  已经在Spring进行缓存，这里不需要
+    <settings>
+        &lt;!&ndash;开启缓存&ndash;&gt;
+        <setting name="cacheEnabled" value="true"/>
+    </settings>-->
+
+    <typeAliases>
+        <typeAlias alias="Development" type="com.newthread.entity.Teamdevelopment"/>
+    </typeAliases>
+
+</configuration>

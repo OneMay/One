@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="spring-db.xml"/>
+
+    <!-- 对应于web.xml中配置的那个shiroFilter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口，这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面
+        <property name="loginUrl" value="/login.html"/>-->
+        <property name="loginUrl" value="/error/login.do"/>
+        <!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->
+        <!-- <property name="successUrl" value="/" ></property> -->
+        <!-- 用户访问未对其授权的资源时，所显示的连接 -->
+        <property name="unauthorizedUrl" value="/error/unauthorized.do"/>
+
+        <property name="filterChainDefinitions">
+            <value>
+                /error/** = anon
+                /admin/login.do = anon
+                /admin/logout.do = anon
+                <!-- //TODO 这是用于测试的免登陆URL，部署时一定要删除 -->
+                /admin/noLogin.do = anon
+                /admin = authc
+                /admin/** = authc
+                /** = anon
+            </value>
+        </property>
+
+    </bean>
+
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
+    <!-- 数据库保存的密码是使用MD5算法加密的，所以这里需要配置一个密码匹配对象 -->
+    <!--<bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.Md5CredentialsMatcher"></bean>-->
+    <!-- 缓存管理
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManager" ref="cacheManagerFactory"/>
+    </bean>
+    -->
+
+    <!--
+    使用Shiro自带的JdbcRealm类
+    指定密码匹配所需要用到的加密对象
+    指定存储用户、角色、权限许可的数据源及相关查询语句
+    -->
+    <bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+        <!--<property name="credentialsMatcher" ref="credentialsMatcher"></property>-->
+        <property name="permissionsLookupEnabled" value="true"></property>
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="authenticationQuery"
+                  value="SELECT password FROM user WHERE user_account = ?"></property>
+        <property name="userRolesQuery"
+                  value="SELECT DISTINCT role_name from role left OUTER JOIN user_role u_r ON u_r.user_account = ?"></property>
+        <property name="permissionsQuery"
+                  value="SELECT power_name from power WHERE power_number IN (SELECT power_number FROM role_power WHERE role_number = (SELECT role_number FROM role WHERE role_name = ?))"></property>
+    </bean>
+
+    <!-- Shiro安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="jdbcRealm"></property>
+        <property name="rememberMeManager" ref="rememberMeManager"/>
+    </bean>
+
+
+    <bean id="formAuthenticationFilter" class="org.apache.shiro.web.filter.authc.FormAuthenticationFilter">
+        <property name="rememberMeParam" value="r"/>
+    </bean>
+
+    <!-- rememberMe管理器 -->
+    <bean id="rememberMeManager"
+          class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <!-- #{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')} -->
+        <property name="cipherKey" value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>
+        <property name="cookie" ref="rememberMeCookie"/>
+    </bean>
+
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="r"/>
+        <property name="httpOnly" value="true"/>
+        <property name="maxAge" value="2592000"/><!-- 30天 -->
+    </bean>
+
+
+</beans>
