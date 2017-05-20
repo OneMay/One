@@ -4,6 +4,7 @@ $(function() {
 	var deAuthor = 'newthread';
 	var hashId = window.location.hash;
 	var reg = /(#n=)(\d+)(&p=)(\d+)/g;
+	var reg2 = /(#n=)(\d+)(&p=)(\d+)/;
 	var hashArr = reg.exec(hashId);
 	var index = hashArr[2];
 	var newsSid = hashArr[4];
@@ -12,6 +13,12 @@ $(function() {
 	if ($('.positionl a')[1].textContent == "新闻中心") {
 		var hashId = window.location.hash;
 		var reg = /(#n=)(\d+)(&p=)(\d+)(&t=)(\d+)/g;
+		var reg2 = /(#n=)(\d+)(&p=)(\d+)(&t=)(\d+)/;
+		if (reg2.test(hashId)) {
+			$('.find-404')[0].style.display = 'none';
+		} else {
+
+		}
 		var hashArr = reg.exec(hashId);
 		var index = hashArr[2];
 		var newsSid = hashArr[4];
@@ -74,6 +81,11 @@ $(function() {
 
 	//获取荣誉成果-创新比赛数据
 	if ($('.positionl a')[1].textContent == "荣誉成果") {
+		if (reg2.test(hashId)) {
+			$('.find')[0].style.display = 'none';
+		} else {
+
+		}
 		$.ajax({
 			type: 'get',
 			url: URL + '/honor/g.do',

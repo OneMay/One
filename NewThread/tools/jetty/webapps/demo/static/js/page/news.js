@@ -32,19 +32,19 @@ $(document).ready(function() {
                         if (data.list) {
                             for (var i = 0; i < data.list.length; i++) {
                                 var textNum = data.list[i].newsContend;
-                                var news = /.{100}/;
+                                /*var news = /.{100}/;
                                 var newsContend = null;
-                                if (textNum.length > 100) {
+                                if (textNum.length > 60) {
                                     var text = textNum.match(news);
                                     newsContend = text[0];
                                 } else {
                                     newsContend = textNum;
-                                }
+                                }*/
                                 var picurl = data.list[i].newsPicture || imgurl;
-                                html += '<div class="news_content"><a href="/demo/html/newscontent.html#n=' + index + '&p=' + data.list[i].newsSid + '&t=' + typeObj[typeName] + '"' + 'target="_blank"' + '"><img src="' + picurl + '" alt=""><article><h1>' + data.list[i].newsTitle + '</h1><h3>发表于' + data.list[i].timeDate + '</h3><p>' + newsContend + '......</p></article></a></div>';
+                                html += '<div class="news_content"><a href="/demo/html/newscontent.html#n=' + index + '&p=' + data.list[i].newsSid + '&t=' + typeObj[typeName] + '"' + 'target="_blank"' + '"><img src="' + picurl + '" alt=""><article><h1>' + data.list[i].newsTitle + '</h1><h3>发表于' + data.list[i].timeDate + '</h3><p>' + textNum + '......</p></article></a></div>';
                             }
                         } else {
-                            html += "哦豁，暂时还没有此类新闻哦！";
+                            html += '<img id="find_img" src="../static/image/null.jpg"><p class="not_find">哦豁，暂时还没有此类新闻哦！</p>';
                         }
                         $(".news_middle").html(html);
                         $("#change_btn").createPage({
@@ -58,7 +58,7 @@ $(document).ready(function() {
                                         html += '<div class="news_content"><a href="/demo/html/newscontent.html#n=' + index + '&p=' + data.list[i].newsSid + '&t=' + typeObj[typeName] + '"' + 'target="_blank"' + '"><img src="' + picurl + '" alt=""><article><h1>' + data.list[i].newsTitle + '</h1><h3>发表于' + data.list[i].timeDate + '</h3><p>' + data.list[i].newsContend + '</p></article></a></div>';
                                     }
                                 } else {
-                                    html += "哦豁，暂时还没有此类新闻哦！";
+                                    html += '<img id="find_img" src="../static/image/null.jpg"><p class="not_find">哦豁，暂时还没有此类新闻哦！</p>';
                                 }
                                 $(".news_middle").html(html);
                                 asyncGetData(p);
@@ -95,30 +95,40 @@ $(document).ready(function() {
                     success: function(data) {
                         // console.log(data);
                         var html = "";
-                        for (var i = 0; i < data.list.length; i++) {
-                            var textNum = data.list[i].honorIntroduce;
-                            var news = /.{100}/;
-                            var text = textNum.match(news);
-                            var newsContend = null;
-                            if (textNum.length > 100) {
+                        if (data.list) {
+                            for (var i = 0; i < data.list.length; i++) {
+                                var textNum = data.list[i].honorIntroduce;
+                                /*var news = /.{100}/;
                                 var text = textNum.match(news);
-                                newsContend = text[0];
-                            } else {
-                                newsContend = textNum;
+                                var newsContend = null;
+                                if (textNum.length > 100) {
+                                    var text = textNum.match(news);
+                                    newsContend = text[0];
+                                } else {
+                                    newsContend = textNum;
+                                }*/
+                                var picurl = data.list[i].honorPicture || imgurl;
+                                html += '<div class="news_content"><a href="/demo/html/honorcontent.html#n=' + index + '&p=' + data.list[i].honorSid + '"' + 'target="_blank"' + '>' + '<img src="' + picurl + '" alt=""><article><h1>' + data.list[i].hornorTitle + '</h1><h3>发表于' + data.list[i].honerTime + '</h3><p>' + textNum + '......</p></article></a></div>';
                             }
-                            var picurl = data.list[i].honorPicture || imgurl;
-                            html += '<div class="news_content"><a href="/demo/html/honorcontent.html#n=' + index + '&p=' + data.list[i].honorSid + '"' + 'target="_blank"' + '>' + '<img src="' + picurl + '" alt=""><article><h1>' + data.list[i].hornorTitle + '</h1><h3>发表于' + data.list[i].honerTime + '</h3><p>' + newsContend + '......</p></article></a></div>';
+                        } else {
+                            html += '<img id="find_img" src="../static/image/null.jpg"><p class="not_find">哦豁，暂时还没有此类新闻哦！</p>';
                         }
+
                         $(".news_middle").html(html);
                         $("#change_btn").createPage({
                             pageCount: data.totalPage,
                             current: data.curPage,
                             backFn: function(p) {
                                 var html = "";
-                                for (var i = 0; i < data.list.length; i++) {
-                                    var picurl = data.list[i].honorPicture || imgurl;
-                                    html += '<div class="news_content"><a href="/demo/html/honorcontent.html#n=' + index + '&p=' + data.list[i].honorSid + '"' + 'target="_blank"' + '>' + '<img src="' + picurl + '" alt=""><article><h1>' + data.list[i].hornorTitle + '</h1><h3>发表于' + data.list[i].honerTime + '</h3><p>' + data.list[i].honorIntroduce + '</p></article></a></div>';
+                                if (data.list) {
+                                    for (var i = 0; i < data.list.length; i++) {
+                                        var picurl = data.list[i].honorPicture || imgurl;
+                                        html += '<div class="news_content"><a href="/demo/html/honorcontent.html#n=' + index + '&p=' + data.list[i].honorSid + '"' + 'target="_blank"' + '>' + '<img src="' + picurl + '" alt=""><article><h1>' + data.list[i].hornorTitle + '</h1><h3>发表于' + data.list[i].honerTime + '</h3><p>' + data.list[i].honorIntroduce + '</p></article></a></div>';
+                                    }
+                                } else {
+                                    html += '<img id="find_img" src="../static/image/null.jpg"><p class="not_find">哦豁，暂时还没有此类新闻哦！</p>';
                                 }
+
                                 $(".news_middle").html(html);
                                 asyncGetData(p);
                             },
