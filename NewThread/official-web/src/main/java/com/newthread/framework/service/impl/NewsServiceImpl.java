@@ -1,5 +1,6 @@
 package com.newthread.framework.service.impl;
 
+import com.newthread.entity.Images;
 import com.newthread.entity.Teamnews;
 import com.newthread.framework.mapper.TeamnewsMapper;
 import com.newthread.framework.service.NewsService;
@@ -48,14 +49,11 @@ public class NewsServiceImpl implements NewsService {
      */
     @Cacheable(key = "'news_' + #number + #size + #type", unless = "#result == null")
     public NewsModel select(Integer number, Integer size, Integer type) {
-
         int record = getRecord();
-
         if (size > record) {
             size = record;
             number = 1;
         }
-
         // 0 是默认获取所有类型的新闻
         if (type == null) {
             type = new Integer(0);
@@ -63,12 +61,9 @@ public class NewsServiceImpl implements NewsService {
 
         //参数页数从1开始，
         number = (number > 0 ? number : 1);
-
         //数据库从0开始，这里穿进来的参数是页数，要转成数据库起始位置，语句：limit 起点，数量
         List<Teamnews> teamnewses = mapper.select((number - 1) * size, size);
-
         Iterator<Teamnews> it = teamnewses.iterator();
-
         //过滤 不是 目标类型的新闻
         while (it.hasNext()) {
             Teamnews t = it.next();
@@ -91,24 +86,17 @@ public class NewsServiceImpl implements NewsService {
         NewsModel.News news = null;
 
         for (Teamnews h : teamnewses) {
-
             news = new NewsModel.News();
-
             news.setNewsSid(h.getNewsSid());
-
 
             //日期处理
             news.setNewsTime(DateUtils.dateTime2String(h.getNewsTime()));
             news.setTimeDate(DateUtils.date2String(h.getNewsTime())); //设置日期
             news.setTimeTime(DateUtils.time2String(h.getNewsTime()));//设置时间
-
             news.setNewsType(h.getNewsType());
-
-            //hh.setHonorIntroduce(h.getHonorIntroduce());
-
             String body = h.getNewsContend();
-
-            news.setNewsContend(body.substring(0, body.length() > 80 ? 80 : body.length()));
+            //news.setNewsContend(body.substring(0, body.length() > 80 ? 80 : body.length()));
+            news.setNewsContend(body);
 
             news.setNewsNote(h.getNewsNote());
             news.setNewsPicture(h.getNewsPicture());
@@ -116,7 +104,6 @@ public class NewsServiceImpl implements NewsService {
             news.setNewsTitle(h.getNewsTitle());
 
             model.add(news);
-
         }
 
         model.setCurPage(number);
@@ -129,7 +116,24 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public NewsModelWithImages selectByPrimaryKeyWithImages(Integer id) {
-        return mapper.selectByPrimaryKeyWithImages(id);
+
+        //这里取出来的图片为服务器的绝对路径,需要去掉,方便前端直接请求URL
+        //如 /var/news/11/8.jpg  -> /news/11/8.jpg
+        NewsModelWithImages modelWithImages = mapper.selectByPrimaryKeyWithImages(id);
+        if(modelWithImages == null){
+            return modelWithImages;
+        }
+        List<String> olds = modelWithImages.getNewsPicture();
+        if (null != olds && !olds.isEmpty()) {
+            List<String> news = new ArrayList<>();
+            Iterator<String> it = olds.iterator();
+            while (it.hasNext()) {
+                news.add(it.next().replace(Images.FILE_PREFIX, ""));
+            }
+            modelWithImages.setNewsPicture(news);
+        }
+
+        return modelWithImages;
     }
 
     @Cacheable(key = "'news_' + #id", unless = "#result == null")

@@ -79,9 +79,13 @@
     from images
   </select>
 
+  <!-- 数据库中,新闻图片的类型是1,团队照片的类型是2 -->
   <select id="selectByPhotoSid" parameterType="java.lang.String" resultMap="BaseModelResultMap">
     select img_sid,  img_name img_path, img_comment
     from images WHERE img_note = #{sid,jdbcType=VARCHAR}
   </select>
+
+
+
 
 </mapper>

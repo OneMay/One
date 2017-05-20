@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新思路官网</title>
+	<link rel="stylesheet" href="./static/css/page/style.css">
+</head>
+<body>
+	<!-- 头部放置图像 -->
+	
+        <div id="box"></div>
+  
+    <div class="content">
+        <div class="Team_Introduction">
+            <div class="TI_head">
+                <h1>团队介绍</h1>
+                <div></div><div></div>
+                <p>Team  Introduction</p>
+                <div></div>
+            </div>
+            <div class="position">
+              <div class="Introduction"></div>
+            </div>
+        </div>
+        <div class="Team_Introduction Team_ynamics">
+            <div class="TI_head">
+                <h1>团队动态</h1>
+                <p>Team  Dynamics</p>
+                <div class="square"></div>
+            </div>
+            <div class="dynamics"></div>
+        </div>
+        <div class="Team_Introduction">
+            <div class="TI_head">
+                <h1>团队分组</h1>
+                <div></div><div></div>
+                <p>Team  Grouping</p>
+                <div></div>
+            </div>
+            <div class="group_w">
+                <div id="group">
+                    <div id="list">
+                        <div><img src="./static/image/xuanchuan.jpg" title="宣传组"><a href="#">宣传组<span>></span></a></div>
+                        <div><img src="./static/image/qihua.jpg" title="企划组"><a href="#">企划组<span>></span></a></div>
+                        <div><img src="./static/image/caiwu.jpg" title="财务组"><a href="#">财务组<span>></span></a></div>
+                        <div><img src="./static/image/sousuo.jpg" title="搜索组"><a href="#">搜索组<span>></span></a></div>
+                        <div><img src="./static/image/.NET.jpg" title=".NET组"><a href="#">.NET组<span>></span></a></div>
+                        <div><img src="./static/image/sheji.jpg" title="设计组"><a href="#">设计组<span>></span></a></div>
+                        <div><img src="./static/image/FeWeb.jpg" title="FeWeb组"><a href="#">FeWeb组<span>></span></a></div>
+                        <div><img src="./static/image/iOS.jpg" title="iOS组"><a href="#">iOS组<span>></span></a></div>
+                        <div><img src="./static/image/Android.jpg" title="Android组"><a href="#">Android组<span>></span></a></div>
+                        <div><img src="./static/image/CPP.jpg" title="CPP组"><a href="#">CPP组<span>></span></a></div>
+                        <div><img src="./static/image/DB.jpg" title="DB组"><a href="#">DB组<span>></span></a></div>
+                        <div><img src="./static/image/j2ee.jpg" title="J2ee组"><a href="#">J2ee组<span>></span></a></div>
+                        <div><img src="./static/image/xuanchuan.jpg" title="宣传组"><a href="#">宣传组<span>></span></a></div>
+                        <div><img src="./static/image/qihua.jpg" title="企划组"><a href="#">企划组<span>></span></a></div>
+                        <div><img src="./static/image/caiwu.jpg" title="财务组"><a href="#">财务组<span>></span></a></div>
+                        <div><img src="./static/image/sousuo.jpg" title="搜索组"><a href="#">搜索组<span>></span></a></div>
+                        <div><img src="./static/image/.NET.jpg" title=".NET组"><a href="#">.NET组<span>></span></a></div>
+                        <div><img src="./static/image/sheji.jpg" title="设计组"><a href="#">设计组<span>></span></a></div>
+                        <div><img src="./static/image/FeWeb.jpg" title="FeWeb组"><a href="#">FeWeb组<span>></span></a></div>
+                        <div><img src="./static/image/iOS.jpg" title="iOS组"><a href="#">iOS组<span>></span></a></div>
+                    </div>
+                </div>
+                <div id="team_prev" class="button"><</div>
+                <div id="team_next" class="button">></div>
+            </div>      
+        </div>
+    </div>
+    <script src="./static/js/lib/jquery-3.1.0.min.js"></script>
+    <script src="./static/js/lib/public.js"></script>
+    <script src="./static/js/page/page.js"></script>
+    <script type="text/javascript">
+    var imgurl = "./static/image/bg.png";
+    $.ajax({
+    type: 'get',
+    data: {
+      s: 3,
+      n: 1
+    },
+    url: 'http://123.206.110.123/api/news/g.do',
+    success: function(data) {
+      //console.log(111);
+      index_Dynamics(data);
+    },
+    error: function(data) {
+      console.log(data);
+    }
+  })
+    function index_Dynamics(data) {
+
+       var list = [{
+        imgUrl: data.list[0].newsPicture||imgurl,
+        href: '/demo/html/newscontent.html#n=' + 1 + '&p=' + data.list[0].newsSid+'&t='+ 0
+      }, {
+        imgUrl: data.list[1].newsPicture||imgurl,
+        href: '/demo/html/newscontent.html#n=' + 1 + '&p=' + data.list[1].newsSid+'&t='+ 0
+      }, {
+        imgUrl: data.list[2].newsPicture||imgurl,
+        href: '/demo/html/newscontent.html#n=' + 1 + '&p=' + data.list[2].newsSid+'&t='+ 0
+      }];
+
+      $('#box').fade({
+            url: list,
+            boxWid:document.body.clientWidth ,
+            boxHei:670
+        }).css({
+            margin:'0 auto'
+        })
+    }
+</script>
+</body>
+</html>

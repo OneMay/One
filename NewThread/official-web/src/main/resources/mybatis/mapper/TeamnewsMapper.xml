@@ -87,9 +87,10 @@
   </select>
 
     <select id="selectByPrimaryKeyWithImages" resultMap="BaseResultMapImg">
-select news_sid, news_title, news_type, news_author, news_readers, news_time, news_timesstamp,
-        news_contend, news_note,img_path
-        from teamnews t  INNER JOIN images i ON  t.news_sid = i.img_note AND news_sid=#{0};
+select t.news_sid, news_title, news_type, news_author, news_readers, news_time, news_timesstamp,
+  news_contend, news_note,img_path
+from (SELECT * from teamnews WHERE news_sid = #{0}) t  LEFT JOIN images i ON t.news_sid=i.news_sid;
+
     </select>
 
     <select id="getRecord" resultType="java.lang.Integer">

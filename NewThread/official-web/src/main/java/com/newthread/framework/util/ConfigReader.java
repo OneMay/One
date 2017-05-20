@@ -2,6 +2,7 @@ package com.newthread.framework.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -63,5 +64,18 @@ public class ConfigReader {
 
     public static String getFileStorePath() {
         return getValue("file_save_path");
+    }
+
+    /**
+     * 多个属性以,分开
+     * @param allowHost
+     */
+    public static void getValueArray(String key,List<String> allowHost) {
+        String res = getValue(key);
+        if(res != null && res.length() > 0){
+            for(String s : res.split(",")){
+                allowHost.add(s);
+            }
+        }
     }
 }

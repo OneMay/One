@@ -1,3 +1,4 @@
+import com.newthread.entity.Images;
 import com.newthread.entity.User;
 import com.newthread.framework.util.ConfigReader;
 import com.newthread.framework.util.DateUtils;
@@ -6,8 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Author:pingcai
@@ -20,10 +20,19 @@ public class Tests {
 
     @Test
     public void test() {
-
-        System.out.println(ConfigReader.getFileStorePath());
-        //2147483647
-        //9223372036854775807
+List<String> list = new ArrayList<>();
+list.add("ddddb");
+list.add("ddddd");
+list.add("dddda");
+        if (!list.isEmpty()) {
+            Iterator<String> it = list.iterator();
+            while (it.hasNext()) {
+                it.next().replace("dddd", "");
+            }
+        }
+        for(String s:list){
+            System.out.println(s);
+        }
     }
 
     @Test
