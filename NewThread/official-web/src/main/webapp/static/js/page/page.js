@@ -311,7 +311,7 @@ function Team_Dynamics(data) {
       '<div class="time">' +
       '<p class="hour">' + ret[2] + '</p>' +
       '<p class="year">' + ret[1] + '</p>' +
-      '<a href="/demo/html/newscontent.html#n=' + 1 + '&p=' + data.list[i].newsSid + '&t=' + 0 + '"' + 'target="_blank"' + '>></a>' +
+      '<a href="./newscontent.html#n=' + 1 + '&p=' + data.list[i].newsSid + '&t=' + 0 + '"' + 'target="_blank"' + '>></a>' +
       '</div>' +
       '</div>' +
       '</div>';
