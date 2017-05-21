@@ -88,7 +88,7 @@ $(function() {
 		}
 		$.ajax({
 			type: 'get',
-			url: URL + 'honor/gbs.do',
+			url: URL + '/honor/gbs.do',
 			data: {
 				id: newsSid
 			},
@@ -100,7 +100,7 @@ $(function() {
 				var newsAuthor = data.honorAuthor || deAuthor;
 				//console.log(data.list[index].honorIntroduce)
 				html += '<div class="news_headl">' +
-					'<h1>' + data.hornorTitle + '</h1>' +
+					'<h1>' + data.honorTitle + '</h1>' +
 					'<div class="news_summary">' +
 					'<p>来源：' + newsAuthor + '<span>时间：' + (data.honerTime || '未知') + '</span><span>浏览：' + (data.honorReaders || 1000) + '</span></p>' +
 					'</div>' +
@@ -108,7 +108,7 @@ $(function() {
 					'<div class="news_text">' +
 					'<p>' + data.honorIntroduce + '</p>' +
 					'</div>';
-				document.title = data.hornorTitle;
+				document.title = data.honorTitle;
 				//}
 				//});
 				$(".news_middlel").html(html);
